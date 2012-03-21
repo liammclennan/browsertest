@@ -4,22 +4,13 @@ var browsertest = require('../browsertest.js').browsertest,
 
 describe('browser tests', function () {
 
-	it('should', function (done) {
-		browsertest("file:///home/liam/work/browser-js-testing/tests.html",
-			function (browser) {
-				var failures = browser.text("li.failures em");
-				var passes = browser.text("li.passes em");
-				var errors = browser.html('div.test.fail h2, div.test.fail pre.error');
-				var result = parseInt(failures) === 0;
-				var message = "Failures: " + failures + "\n" + 
-					"Passes: " + passes + "\n" + 
-					errors;
-				if (!result) console.log(message);
-				return {result: result, message: message};			
-			},
-			"Tests failed!", function() { 
+	it('should properly report the result of a mocha test page', function (done) {
+		browsertest({
+			url: "file:///home/liam/work/browser-js-testing/tests.html",
+			callback: function() { 
 				done();
-			});
+			}
+		});
 	});
 
 });

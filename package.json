@@ -1,8 +1,8 @@
-{ "name" : "watchn"
+{ "name" : "browsertest"
 , "version" : "0.1.0"
-, "description" : "A basic recursive file system watcher for node.js"
+, "description" : "Server-side testing of browser dependent JavaScript"
 , "author" : "Liam McLennan <liam.mclennan@gmail.com>"
-, "main" : "lib/watchn.js"
+, "main" : "browsertest.js"
 , "dependencies": {
 	"zombie": "*",
 	"growl": "*"
