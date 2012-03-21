@@ -59,10 +59,3 @@ For mocha tests it can be used like this:
     });
 
 For other browser test tools define a 'pagePredicate' property on the options hash that returns { result: <bool>, message: <string> }
-
-TODO
-----
-
-* Use for html template compilation. 
-
-* Stop using watchr for node projects

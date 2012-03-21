@@ -6,7 +6,7 @@ describe('browser tests', function () {
 
 	it('should properly report the result of a mocha test page', function (done) {
 		browsertest({
-			url: "file:///home/liam/work/browser-js-testing/tests.html",
+			url: "file://" + __dirname + "/tests.html",
 			callback: function() { 
 				done();
 			}
