@@ -2,20 +2,17 @@ var Browser = require('zombie'),
 	assert = require('assert'),
 	growl = require('growl');
 
-module.exports.browsertest = function (urls, pagePredicate, failedMessage) {
+module.exports.browsertest = function (url, pagePredicate, failedMessage, callback) {
 	var browser = new Browser();
 
-	urls.forEach(function (url) {
-
-		browser.visit(url, function (/* TODO find what params go here and why this func is not called */) {
-console.log("visited" + url);
-			var result = pagePredicate(browser);
-			if (!result) {
-				growl(failedMessage);
-			}
-
-		});
-
+	browser.visit(url, function () {
+		var result = pagePredicate(browser);
+		if (!result.result) {
+			growl(failedMessage);
+			assert.ok(result.result, result.message);
+		}
+		callback();
 	});
+	
 
 };
