@@ -1,0 +1,56 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pass</title>
+  <link rel="stylesheet" href="https://raw.github.com/visionmedia/mocha/master/mocha.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://raw.github.com/LearnBoost/expect.js/master/expect.js"></script>
+  <script src="https://raw.github.com/visionmedia/mocha/master/mocha.js"></script>
+  <script>
+    mocha.setup({
+      ui: 'bdd'
+    , globals: ['foo', 'bar'] // acceptable globals
+    })
+  </script>
+  <script type="text/javascript">
+    // sut
+    
+    var sut = {
+      add: function(first,second) {
+        return first + second;
+      }
+    };
+  </script>
+  <script type="text/javascript">
+    // tests
+
+    describe('sut', function () {
+
+      describe('when adding', function () {
+
+        it('should add two positive numbers', function () {
+          expect(sut.add(4,61)).to.be(65);
+        });
+
+        it('should add a number and a letter', function () {
+          expect(sut.add(1,'a')).to.be('1a');
+        });
+
+        it('should do something crazy', function () {
+          expect(6).to.be(6);
+        });
+
+      });
+
+    });
+  </script>
+  <script>
+    $(function(){
+      mocha.run()
+    })
+  </script>
+</head>
+<body>
+  <div id="mocha"></div>
+</body>
+</html>

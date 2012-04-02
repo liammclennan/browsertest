@@ -18,7 +18,6 @@ module.exports.browsertest = function (options) {
 	var browser = new Browser();
 	options.pagePredicate = options.pagePredicate || mochaPredicate;
 	options.failedMessage = options.failedMessage || defaultFailureMessage;
-
 	browser.visit(options.url, function () {
 		var result = options.pagePredicate(browser);
 		if (!result.result) {
