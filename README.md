@@ -59,3 +59,12 @@ For mocha tests it can be used like this:
     });
 
 For other browser test tools define a 'pagePredicate' property on the options hash that returns { result: <bool>, message: <string> }
+
+Running the Tests
+-----------------
+
+To run the included tests make sure you are in the root of the project, and run:
+
+    mocha -t 5000
+
+where 5000 is the test timeout in milliseconds.
